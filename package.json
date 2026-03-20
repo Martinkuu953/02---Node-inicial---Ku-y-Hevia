@@ -20,7 +20,13 @@
     "ej02": "node src/modules/ej02.js",
     "ej03": "node src/modules/ej03.js",
     "ej04": "node src/modules/ej04.js",
-    "ej05": "node src/modules/ej05.js"
-    
+    "ej05": "node src/modules/ej05.js",
+    "ej06": "node src/modules/ej06.js",
+    "ej07": "node src/modules/ej07.js",
+    "ej08": "node src/modules/ej08.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "currency-map-country": "^1.0.12"
   }
 }

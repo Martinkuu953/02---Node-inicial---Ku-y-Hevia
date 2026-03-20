@@ -1,10 +1,16 @@
-let miUrl    = null;
+let miUrl = null;
 let miObjeto = null;
 
 miUrl    = 'http://www.ort.edu.ar:8080/alumnos/index.htm?curso=2022&mes=mayo';
-miObjeto = parsearUrl (miUrl)
+miObjeto = parsearUrl(miUrl)
 console.log(miObjeto);
 
 function parsearUrl(laURL) {
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
+    const url = new URL(laURL)
+
+    return {
+        host: url.origin,
+        pathname: url.pathname,
+        parametros: url.searchParams
+    };
 }
