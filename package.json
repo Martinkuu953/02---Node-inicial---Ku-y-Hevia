@@ -12,11 +12,15 @@
   },
   "license": "ISC",
   "author": "Aaron Martin Ku",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ej01": "node src/modules/ej01.js"
+    "ej01": "node src/modules/ej01.js",
+    "ej02": "node src/modules/ej02.js",
+    "ej03": "node src/modules/ej03.js",
+    "ej04": "node src/modules/ej04.js",
+    "ej05": "node src/modules/ej05.js"
     
   }
 }
