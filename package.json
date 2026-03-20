@@ -1,0 +1,20 @@
+{
+  "name": "tp-02",
+  "version": "1.0.0",
+  "description": "primer proyecto de node",
+  "homepage": "https://github.com/Martinkuu953/02---Node-inicial---Ku-y-Hevia#readme",
+  "bugs": {
+    "url": "https://github.com/Martinkuu953/02---Node-inicial---Ku-y-Hevia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martinkuu953/02---Node-inicial---Ku-y-Hevia.git"
+  },
+  "license": "ISC",
+  "author": "Aaron Martin Ku",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
