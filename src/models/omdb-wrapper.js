@@ -1,5 +1,3 @@
-/* Módulo  OMDBWrapper*/
-
 import axios from "axios";
 
 const APIKEY = "bb792b79";
@@ -41,10 +39,8 @@ const OMDBSearchComplete = async (searchText) => {
     returnObject.cantidadTotal = primeraPag.cantidadTotal;
     returnObject.datos = [...primeraPag.datos];
 
-    // OMDB trae 10 resultados por página
     const totalPaginas = Math.ceil(primeraPag.cantidadTotal / 10);
 
-    // traigo el resto
     for (let i = 2; i <= totalPaginas; i++) {
       const datosPagina = await OMDBSearchByPage(searchText, i);
       returnObject.datos.push(...datosPagina.datos);
