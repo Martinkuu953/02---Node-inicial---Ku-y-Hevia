@@ -1,13 +1,13 @@
-let miUrl = null;
-let miObjeto = null;
+let url = null;
+let resultado = null;
 
-miUrl    = 'q/index.htm?curso=2022&mes=mayo';
-miObjeto = parsearUrl(miUrl)
-console.log(miObjeto);
+url    = 'q/index.htm?curso=2022&mes=mayo';
+resultado = parsearUrl(url)
+console.log(resultado);
 
-function parsearUrl(laURL) {
+function parsearUrl(laUrl) {
     try {
-        const url = new URL(laURL)
+        const url = new URL(laUrl)
 
         return {
             host: url.origin,
