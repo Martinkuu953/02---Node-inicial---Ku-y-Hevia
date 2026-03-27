@@ -12,14 +12,14 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
       datos         : []
     };
 
-    const response = await axios.get(
+    const resultado = await axios.get(
       `http://www.omdbapi.com/?apikey=${APIKEY}&s=${searchText}&page=${page}`
     );
 
-    if (response.data.Response === "True") {
+    if (resultado.data.Response === "True") {
       returnObject.respuesta = true;
-      returnObject.cantidadTotal = parseInt(response.data.totalResults);
-      returnObject.datos = response.data.Search;
+      returnObject.cantidadTotal = parseInt(resultado.data.totalResults);
+      returnObject.datos = resultado.data.Search;
     }
       
   return returnObject;
@@ -33,21 +33,21 @@ const OMDBSearchComplete = async (searchText) => {
       datos         : []
     };
 
-   const first = await OMDBSearchByPage(searchText, 1);
+   const primeraPag = await OMDBSearchByPage(searchText, 1);
 
-    if (!first.respuesta) return returnObject;
+    if (!primeraPag.respuesta) return returnObject;
 
     returnObject.respuesta = true;
-    returnObject.cantidadTotal = first.cantidadTotal;
-    returnObject.datos = [...first.datos];
+    returnObject.cantidadTotal = primeraPag.cantidadTotal;
+    returnObject.datos = [...primeraPag.datos];
 
     // OMDB trae 10 resultados por página
-    const totalPages = Math.ceil(first.cantidadTotal / 10);
+    const totalPaginas = Math.ceil(primeraPag.cantidadTotal / 10);
 
     // traigo el resto
-    for (let i = 2; i <= totalPages; i++) {
-      const pageData = await OMDBSearchByPage(searchText, i);
-      returnObject.datos.push(...pageData.datos);
+    for (let i = 2; i <= totalPaginas; i++) {
+      const datosPagina = await OMDBSearchByPage(searchText, i);
+      returnObject.datos.push(...datosPagina.datos);
     }
   return returnObject;
 };
@@ -60,13 +60,13 @@ const OMDBGetByImdbID = async (imdbID) => {
       datos         : {}
     };
 
-    const response = await axios.get(
+    const respuesta = await axios.get(
       `http://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`
     );
 
-    if (response.data.Response === "True") {
+    if (respuesta.data.Response === "True") {
       returnObject.respuesta = true;
-      returnObject.datos = response.data;
+      returnObject.datos = respuesta.data;
     }
 
   return returnObject;
