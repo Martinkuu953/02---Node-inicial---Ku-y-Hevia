@@ -2,7 +2,7 @@ let username;
 let dni;
 let edad;
 
-function Alumno(username = "", dni = "", edad = 0) {
+function Alumno(username, dni, edad) {
     this.username = username;
     this.dni = dni;
     this.edad = edad;
