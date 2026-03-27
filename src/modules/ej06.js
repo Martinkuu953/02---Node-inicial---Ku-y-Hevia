@@ -2,10 +2,10 @@ let url = null;
 let resultado = null;
 
 url    = 'q/index.htm?curso=2022&mes=mayo';
-resultado = parsearUrl(url)
+resultado = devolverUrlEnPartes(url)
 console.log(resultado);
 
-function parsearUrl(laUrl) {
+function devolverUrlEnPartes(laUrl) {
     try {
         const url = new URL(laUrl)
 
