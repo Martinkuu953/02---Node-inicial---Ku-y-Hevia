@@ -10,6 +10,8 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
       datos         : []
     };
 
+    //Cuerpo
+
     const resultado = await axios.get(
       `http://www.omdbapi.com/?apikey=${APIKEY}&s=${searchText}&page=${page}`
     );
@@ -19,7 +21,9 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
       returnObject.cantidadTotal = parseInt(resultado.data.totalResults);
       returnObject.datos = resultado.data.Search;
     }
-      
+    
+    //Fin De Cuerpo
+
   return returnObject;
 };
 
@@ -31,7 +35,9 @@ const OMDBSearchComplete = async (searchText) => {
       datos         : []
     };
 
-   const primeraPag = await OMDBSearchByPage(searchText, 1);
+    //Cuerpo
+
+    const primeraPag = await OMDBSearchByPage(searchText, 1);
 
     if (!primeraPag.respuesta) return returnObject;
 
@@ -45,6 +51,9 @@ const OMDBSearchComplete = async (searchText) => {
       const datosPagina = await OMDBSearchByPage(searchText, i);
       returnObject.datos.push(...datosPagina.datos);
     }
+
+    //Fin De Cuerpo
+
   return returnObject;
 };
 
@@ -56,6 +65,8 @@ const OMDBGetByImdbID = async (imdbID) => {
       datos         : {}
     };
 
+    //Cuerpo
+
     const respuesta = await axios.get(
       `http://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`
     );
@@ -64,6 +75,8 @@ const OMDBGetByImdbID = async (imdbID) => {
       returnObject.respuesta = true;
       returnObject.datos = respuesta.data;
     }
+
+    //Fin De Cuerpo
 
   return returnObject;
 };
